@@ -252,6 +252,10 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
+    .grid-icons {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--card-border);
@@ -279,6 +283,51 @@
       color: #dbeafe;
       background: rgba(110, 168, 255, 0.12);
       border: 1px solid rgba(110, 168, 255, 0.2);
+    }
+
+    .icon-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .icon-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(110, 168, 255, 0.28);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .icon-card::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110, 168, 255, 0.12), transparent 68%);
+      pointer-events: none;
+    }
+
+    .icon-badge {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(110, 168, 255, 0.2), rgba(139, 92, 246, 0.2));
+      border: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 1rem;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      stroke: var(--text);
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .about {
@@ -330,6 +379,7 @@
     @media (max-width: 900px) {
       .hero-grid,
       .grid-3,
+      .grid-icons,
       .about {
         grid-template-columns: 1fr;
       }
@@ -401,35 +451,139 @@
 
     <section class="section" id="guider">
       <div class="container">
-        <h2 class="section-title">Det här kan du hitta här</h2>
+        <h2 class="section-title">Utforska innehållet</h2>
         <p class="section-copy">
-          Sidan är byggd för att växa. Börja med några tydliga kategorier och fyll på
-          med innehåll över tid.
+          Jag har uppdaterat startsidan med nya gratis SVG-ikoner direkt i HTML-koden, så du slipper
+          separata bildfiler och får en renare, mer modern teknik-känsla.
         </p>
 
-        <div class="grid grid-3">
-          <article class="card">
+        <div class="grid grid-icons">
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                <path d="M8 20h8"></path>
+                <path d="M12 16v4"></path>
+              </svg>
+            </div>
             <span class="tag">Guider</span>
-            <h3>Pedagogiska steg-för-steg-guider</h3>
-            <p>
-              Förklaringar som hjälper besökare att förstå teknik utan att drunkna i svåra ord.
-            </p>
+            <h3>Datorer</h3>
+            <p>Steg-för-steg-guider, köpstöd och tips för laptops, stationära datorer och tillbehör.</p>
           </article>
 
-          <article class="card" id="verktyg">
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 6h.01"></path>
+                <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                <path d="M12 18h.01"></path>
+              </svg>
+            </div>
+            <span class="tag">Mobilt</span>
+            <h3>Mobiltelefoner</h3>
+            <p>Appar, felsökning, smarta inställningar och hjälp att välja rätt mobil för vardagen.</p>
+          </article>
+
+          <article class="card icon-card" id="verktyg">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 13a8 8 0 0 1 16 0"></path>
+                <path d="M18 13v4a2 2 0 0 1-2 2h-1"></path>
+                <path d="M6 13v4a2 2 0 0 0 2 2h1"></path>
+                <path d="M10 18h4"></path>
+              </svg>
+            </div>
+            <span class="tag">Ljud</span>
+            <h3>Hörlurar</h3>
+            <p>Jämförelser, guider och rekommendationer för musik, arbete, resor och gaming.</p>
+          </article>
+
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 4h-4a2 2 0 0 0-2 2v2H6a2 2 0 0 0-2 2v7a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-7a2 2 0 0 0-2-2h-2V6a2 2 0 0 0-2-2z"></path>
+                <circle cx="12" cy="13" r="3"></circle>
+              </svg>
+            </div>
+            <span class="tag">Foto</span>
+            <h3>Kameror</h3>
+            <p>Tips om foto, video, mobilkameror och prylar för dig som vill skapa bättre innehåll.</p>
+          </article>
+
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                <path d="M7 15h.01"></path>
+                <path d="M17 15h.01"></path>
+                <path d="M8 8l3-3"></path>
+                <path d="M16 8l-3-3"></path>
+              </svg>
+            </div>
+            <span class="tag">Gaming</span>
+            <h3>Spel & tillbehör</h3>
+            <p>Innehåll om handkontroller, spelprylar, plattformar och bättre spelupplevelser.</p>
+          </article>
+
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <path d="M4 9V7a3 3 0 0 1 3-3h2"></path>
+                <path d="M15 4h2a3 3 0 0 1 3 3v2"></path>
+                <path d="M20 15v2a3 3 0 0 1-3 3h-2"></path>
+                <path d="M9 20H7a3 3 0 0 1-3-3v-2"></path>
+              </svg>
+            </div>
+            <span class="tag">Hårdvara</span>
+            <h3>Processorer</h3>
+            <p>Förklaringar kring CPU, prestanda, uppgraderingar och vad som faktiskt spelar roll.</p>
+          </article>
+
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 11a9 9 0 0 1 18 0"></path>
+                <path d="M5 15h14"></path>
+                <path d="M8 18h8"></path>
+                <path d="M10 21h4"></path>
+              </svg>
+            </div>
+            <span class="tag">Hem</span>
+            <h3>Smart hem</h3>
+            <p>Enkla guider till lampor, sensorer, automation och teknik som gör hemmet smartare.</p>
+          </article>
+
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2v4"></path>
+                <path d="M12 18v4"></path>
+                <path d="M4.93 4.93l2.83 2.83"></path>
+                <path d="M16.24 16.24l2.83 2.83"></path>
+                <path d="M2 12h4"></path>
+                <path d="M18 12h4"></path>
+                <path d="M4.93 19.07l2.83-2.83"></path>
+                <path d="M16.24 7.76l2.83-2.83"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
             <span class="tag">AI</span>
-            <h3>Smarta AI-verktyg</h3>
-            <p>
-              Samlingar och tester av verktyg som faktiskt sparar tid och gör nytta i vardagen.
-            </p>
+            <h3>Verktyg & AI</h3>
+            <p>Samlingar av program, AI-tjänster och digitala verktyg som sparar tid i vardagen.</p>
           </article>
 
-          <article class="card">
-            <span class="tag">Tips</span>
-            <h3>Digitala rekommendationer</h3>
-            <p>
-              Tips om program, tjänster och lösningar som är värda att använda och förstå.
-            </p>
+          <article class="card icon-card">
+            <div class="icon-badge">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M8 13h5"></path>
+              </svg>
+            </div>
+            <span class="tag">Kontakt</span>
+            <h3>Kontakta oss</h3>
+            <p>En tydlig plats för frågor, samarbete, tips och framtida sponsorförfrågningar.</p>
           </article>
         </div>
       </div>
