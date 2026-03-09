@@ -1,15 +1,485 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teknikbase</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teknikbase – Teknik, AI och digitala verktyg</title>
+  <meta name="description" content="Teknikbase är din kunskapsbas för teknik, AI, guider och digitala verktyg." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #11182d;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #e8eefc;
+      --muted: #a9b4d0;
+      --accent: #6ea8ff;
+      --accent-2: #8b5cf6;
+      --success: #35c48b;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110, 168, 255, 0.15), transparent 25%),
+        radial-gradient(circle at top right, rgba(139, 92, 246, 0.12), transparent 30%),
+        linear-gradient(180deg, #0a0f1d 0%, #0b1020 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 12, 24, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      font-weight: 900;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 5vw, 4.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0 0 1.5rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.9rem 1.2rem;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .terminal {
+      background: #050816;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .terminal-bar {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.8rem 1rem;
+      background: #0e1324;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #334155;
+    }
+
+    .dot:nth-child(1) { background: #ff5f57; }
+    .dot:nth-child(2) { background: #febc2e; }
+    .dot:nth-child(3) { background: #28c840; }
+
+    .terminal-body {
+      padding: 1.2rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: #c9d7ff;
+      font-size: 0.95rem;
+      min-height: 240px;
+    }
+
+    .terminal-line {
+      margin-bottom: 0.7rem;
+      white-space: pre-wrap;
+    }
+
+    .section {
+      padding: 2rem 0 4rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin: 0 0 0.7rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      margin: 0 0 2rem;
+      max-width: 65ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card .tag {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: #dbeafe;
+      background: rgba(110, 168, 255, 0.12);
+      border: 1px solid rgba(110, 168, 255, 0.2);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .checklist {
+      padding: 0;
+      margin: 1rem 0 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      margin-bottom: 0.8rem;
+      color: var(--muted);
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 1rem;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-3,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        padding: 0.9rem 0;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 3.2rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-mark">T</span>
+        <span>Teknikbase</span>
+      </a>
 
-<h1>Välkommen till Teknikbase</h1>
-<p>Din kunskapsbas för teknik, AI och digitala verktyg.</p>
+      <nav class="nav-links">
+        <a href="#guider">Guider</a>
+        <a href="#verktyg">Verktyg</a>
+        <a href="#om">Om</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Teknik, AI och digitala verktyg</div>
+          <h1>Din kunskapsbas för smartare teknikval</h1>
+          <p>
+            Teknikbase samlar guider, verktyg, tips och förklaringar inom teknik,
+            AI och digital vardag. En snabb, enkel och tydlig plats för att förstå
+            det digitala utan onödigt krångel.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#guider">Utforska guider</a>
+            <a class="btn btn-secondary" href="#om">Läs om sidan</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line">$ welcome teknikbase.se</div>
+              <div class="terminal-line">> Status: Online</div>
+              <div class="terminal-line">> Fokus: Teknik, AI, guider, verktyg</div>
+              <div class="terminal-line">> Plattform: GitHub Pages + egen domän</div>
+              <div class="terminal-line">> Nästa steg: Bygga innehåll som hjälper människor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guider">
+      <div class="container">
+        <h2 class="section-title">Det här kan du hitta här</h2>
+        <p class="section-copy">
+          Sidan är byggd för att växa. Börja med några tydliga kategorier och fyll på
+          med innehåll över tid.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <span class="tag">Guider</span>
+            <h3>Pedagogiska steg-för-steg-guider</h3>
+            <p>
+              Förklaringar som hjälper besökare att förstå teknik utan att drunkna i svåra ord.
+            </p>
+          </article>
+
+          <article class="card" id="verktyg">
+            <span class="tag">AI</span>
+            <h3>Smarta AI-verktyg</h3>
+            <p>
+              Samlingar och tester av verktyg som faktiskt sparar tid och gör nytta i vardagen.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Tips</span>
+            <h3>Digitala rekommendationer</h3>
+            <p>
+              Tips om program, tjänster och lösningar som är värda att använda och förstå.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="om">
+      <div class="container">
+        <div class="about">
+          <div class="card">
+            <h2 class="section-title">Om Teknikbase</h2>
+            <p class="section-copy">
+              Teknikbase är tänkt som en modern svensk tekniksajt där innehållet är
+              enkelt att förstå, snyggt att läsa och snabbt att ladda.
+            </p>
+            <ul class="checklist">
+              <li>Mobilanpassad design</li>
+              <li>Snabb och lätt sida</li>
+              <li>Byggd för att kunna växa med fler artiklar</li>
+              <li>Perfekt grund för framtida guider och innehåll</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 class="section-title">Nästa steg</h2>
+            <p class="section-copy">
+              Nu när sidan är live kan du börja bygga vidare med fler undersidor,
+              artiklar och sektioner. Det här är bara första versionen.
+            </p>
+            <ul class="checklist">
+              <li>Lägg till fler undersidor</li>
+              <li>Skapa en riktig artikelstruktur</li>
+              <li>Publicera guider inom teknik och AI</li>
+              <li>Bygg vidare i din egen takt</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>Teknikbase</strong><br />
+        <span class="muted">Teknik, AI och digitala verktyg</span>
+      </div>
+      <div class="muted">
+        © 2026 Teknikbase. Byggd med HTML och GitHub Pages.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
