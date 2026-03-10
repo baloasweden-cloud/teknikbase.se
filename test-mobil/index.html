@@ -1,74 +1,154 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vilken mobil ska jag köpa? | Teknikbase</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitta rätt mobil för dig</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #1e293b;
+      border-radius: 14px;
+    }
 
-body{
-font-family:Arial, sans-serif;
-background:#0f172a;
-color:#e2e8f0;
-margin:0;
-}
+    h1 {
+      margin-top: 0;
+    }
 
-.container{
-max-width:800px;
-margin:auto;
-padding:40px;
-}
+    .question {
+      margin-bottom: 25px;
+    }
 
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:12px;
-margin-top:20px;
-}
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
 
-button{
-background:#38bdf8;
-border:none;
-padding:12px 20px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
+    button {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-</style>
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #111827;
+      border-radius: 12px;
+      display: none;
+    }
+
+    .result h2 {
+      margin-top: 0;
+      color: #7dd3fc;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <h1>Hitta rätt mobil för dig</h1>
+    <p>Svara på några enkla frågor så får du ett förslag.</p>
 
-<div class="container">
+    <div class="question">
+      <h3>1. Vad ska du främst använda mobilen till?</h3>
+      <label><input type="radio" name="use" value="vardag"> Vardag, sociala medier och appar</label>
+      <label><input type="radio" name="use" value="foto"> Foto och video</label>
+      <label><input type="radio" name="use" value="jobb"> Jobb och produktivitet</label>
+      <label><input type="radio" name="use" value="spel"> Spel och prestanda</label>
+    </div>
 
-<h1>Vilken mobil ska jag köpa?</h1>
+    <div class="question">
+      <h3>2. Hur viktig är kameran för dig?</h3>
+      <label><input type="radio" name="camera" value="high"> Väldigt viktig</label>
+      <label><input type="radio" name="camera" value="medium"> Ganska viktig</label>
+      <label><input type="radio" name="camera" value="low"> Inte så viktig</label>
+    </div>
 
-<p>
-Svara på några enkla frågor så hjälper vi dig hitta en mobil som passar dina behov.
-</p>
+    <div class="question">
+      <h3>3. Hur viktig är batteritiden?</h3>
+      <label><input type="radio" name="battery" value="high"> Väldigt viktig</label>
+      <label><input type="radio" name="battery" value="medium"> Ganska viktig</label>
+      <label><input type="radio" name="battery" value="low"> Inte så viktig</label>
+    </div>
 
-<div class="card">
+    <div class="question">
+      <h3>4. Vad är din budget?</h3>
+      <label><input type="radio" name="budget" value="low"> Under 4000 kr</label>
+      <label><input type="radio" name="budget" value="mid"> 4000–8000 kr</label>
+      <label><input type="radio" name="budget" value="high"> Över 8000 kr</label>
+    </div>
 
-<h3>Vad är viktigast för dig?</h3>
+    <button onclick="showResult()">Visa resultat</button>
 
-<label><input type="radio" name="type"> Bra kamera</label><br>
-<label><input type="radio" name="type"> Batteritid</label><br>
-<label><input type="radio" name="type"> Prestanda</label><br>
-<label><input type="radio" name="type"> Billig mobil</label>
+    <div class="result" id="resultBox">
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+    </div>
+  </div>
 
-<br><br>
+  <script>
+    function showResult() {
+      const use = document.querySelector('input[name="use"]:checked');
+      const camera = document.querySelector('input[name="camera"]:checked');
+      const battery = document.querySelector('input[name="battery"]:checked');
+      const budget = document.querySelector('input[name="budget"]:checked');
 
-<button>Visa rekommendation</button>
+      if (!use || !camera || !battery || !budget) {
+        alert("Du behöver svara på alla frågor först.");
+        return;
+      }
 
-</div>
+      let title = "";
+      let text = "";
 
-<p>
-Detta test kommer snart ge förslag på mobiler baserat på dina svar.
-</p>
+      if (use.value === "foto" && camera.value === "high" && budget.value === "high") {
+        title = "Du bör välja en premium-mobil med mycket bra kamera";
+        text = "Du verkar prioritera foto och video högt. Satsa på en mobil med stark kamera, bra mörkerläge, stabil videoinspelning och hög skärmkvalitet.";
+      } 
+      else if (use.value === "spel") {
+        title = "Du bör välja en mobil med hög prestanda";
+        text = "Eftersom du vill spela spel behöver du en mobil med snabb processor, bra skärm och tillräckligt med lagring. Titta gärna på modeller i mellan- eller premiumklassen.";
+      } 
+      else if (use.value === "jobb" && battery.value === "high") {
+        title = "Du passar bäst för en pålitlig jobbmobil med lång batteritid";
+        text = "Du verkar behöva en stabil mobil för samtal, e-post, appar och produktivitet. Prioritera bra batteritid, snabb prestanda och en tydlig skärm.";
+      } 
+      else if (budget.value === "low") {
+        title = "Du passar bäst för en prisvärd budgetmobil";
+        text = "Du behöver troligen en mobil för vardag, appar och surf utan att lägga för mycket pengar. Satsa på bra batteri, minst 128 GB lagring om möjligt och en pålitlig modell.";
+      } 
+      else if (camera.value === "high" && budget.value === "mid") {
+        title = "Du bör välja en mobil i mellanklassen med bra kamera";
+        text = "Du vill ha bra bilder utan att betala för en toppmodell. Leta efter en mobil med stark huvudkamera, bra porträttläge och stabil videofunktion.";
+      } 
+      else {
+        title = "Du passar bäst för en allround-mobil";
+        text = "Du verkar vilja ha en mobil som fungerar bra till det mesta: appar, sociala medier, vardag och lite foto. En stabil modell i mellanprisklassen passar dig bäst.";
+      }
 
-</div>
-
+      document.getElementById("resultTitle").textContent = title;
+      document.getElementById("resultText").textContent = text;
+      document.getElementById("resultBox").style.display = "block";
+    }
+  </script>
 </body>
 </html>
