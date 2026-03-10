@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://teknikbase.se/sitemap.xml
