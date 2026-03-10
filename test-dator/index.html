@@ -1,74 +1,133 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vilken dator ska jag köpa? | Teknikbase</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitta rätt dator för dig</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #1e293b;
+      border-radius: 14px;
+    }
 
-body{
-font-family:Arial;
-background:#0f172a;
-color:#e2e8f0;
-margin:0;
-}
+    h1 {
+      margin-top: 0;
+    }
 
-.container{
-max-width:800px;
-margin:auto;
-padding:40px;
-}
+    .question {
+      margin-bottom: 25px;
+    }
 
-.card{
-background:#1e293b;
-padding:30px;
-border-radius:12px;
-margin-top:20px;
-}
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
 
-button{
-background:#38bdf8;
-border:none;
-padding:12px 20px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
+    button {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-</style>
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      background: #111827;
+      border-radius: 12px;
+      display: none;
+    }
+
+    .result h2 {
+      margin-top: 0;
+      color: #7dd3fc;
+    }
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <h1>Hitta rätt dator för dig</h1>
+    <p>Svara på några enkla frågor så får du ett förslag.</p>
 
-<div class="container">
+    <div class="question">
+      <h3>1. Vad ska du främst använda datorn till?</h3>
+      <label><input type="radio" name="use" value="studier"> Studier och surf</label>
+      <label><input type="radio" name="use" value="jobb"> Jobb och produktivitet</label>
+      <label><input type="radio" name="use" value="spel"> Spel</label>
+    </div>
 
-<h1>Vilken dator ska jag köpa?</h1>
+    <div class="question">
+      <h3>2. Hur viktig är batteritid och låg vikt?</h3>
+      <label><input type="radio" name="portable" value="yes"> Väldigt viktigt</label>
+      <label><input type="radio" name="portable" value="no"> Inte så viktigt</label>
+    </div>
 
-<p>
-Svara på några frågor så hjälper vi dig hitta rätt dator.
-</p>
+    <div class="question">
+      <h3>3. Vad är din budget?</h3>
+      <label><input type="radio" name="budget" value="low"> Under 7000 kr</label>
+      <label><input type="radio" name="budget" value="mid"> 7000–12000 kr</label>
+      <label><input type="radio" name="budget" value="high"> Över 12000 kr</label>
+    </div>
 
-<div class="card">
+    <button onclick="showResult()">Visa resultat</button>
 
-<h3>Vad ska du använda datorn till?</h3>
+    <div class="result" id="resultBox">
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+    </div>
+  </div>
 
-<label><input type="radio" name="use"> Studier</label><br>
-<label><input type="radio" name="use"> Arbete</label><br>
-<label><input type="radio" name="use"> Spel</label><br>
-<label><input type="radio" name="use"> Surf och vardag</label>
+  <script>
+    function showResult() {
+      const use = document.querySelector('input[name="use"]:checked');
+      const portable = document.querySelector('input[name="portable"]:checked');
+      const budget = document.querySelector('input[name="budget"]:checked');
 
-<br><br>
+      if (!use || !portable || !budget) {
+        alert("Du behöver svara på alla frågor först.");
+        return;
+      }
 
-<button>Visa rekommendation</button>
+      let title = "";
+      let text = "";
 
-</div>
+      if (use.value === "spel") {
+        title = "Du bör titta på en gamingdator";
+        text = "Eftersom du vill spela spel behöver du en dator med stark processor, bra grafikkort och tillräckligt med RAM. Satsa gärna på mellan- eller hög budget.";
+      } else if (use.value === "studier" && portable.value === "yes") {
+        title = "Du passar bäst för en lätt laptop";
+        text = "En tunn och lätt laptop med bra batteritid passar dig bäst. Du behöver troligen inte den dyraste modellen om du mest surfar, skriver och studerar.";
+      } else if (use.value === "jobb" && budget.value === "high") {
+        title = "Du bör välja en kraftfull arbetslaptop";
+        text = "Du verkar behöva en dator för produktivitet och kanske flera program samtidigt. Satsa på snabb SSD, minst 16 GB RAM och bra skärm.";
+      } else {
+        title = "Du passar bäst för en prisvärd vardagsdator";
+        text = "Du behöver troligen en stabil dator för vardag, surf, dokument och enklare uppgifter. Fokusera på SSD och minst 8 GB RAM.";
+      }
 
-<p>
-Snart kommer testet ge konkreta datorförslag baserat på dina svar.
-</p>
-
-</div>
-
+      document.getElementById("resultTitle").textContent = title;
+      document.getElementById("resultText").textContent = text;
+      document.getElementById("resultBox").style.display = "block";
+    }
+  </script>
 </body>
 </html>
