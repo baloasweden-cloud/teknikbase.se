@@ -3,309 +3,575 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vilka hörlurar ska jag välja?</title>
+  <title>Bästa hörlurarna 2026 – guide och rekommendationer | Teknikbase</title>
+  <meta name="description" content="Bästa hörlurarna 2026. En enkel guide till over-ear, in-ear, brusreducering, batteritid och populära modeller för musik, resor, arbete och vardag." />
+  <link rel="canonical" href="https://teknikbase.se/horlurar/basta-horlurarna-2026/" />
+  <meta property="og:title" content="Bästa hörlurarna 2026 – guide och rekommendationer | Teknikbase" />
+  <meta property="og:description" content="En enkel guide till de bästa hörlurarna 2026. Jämför populära modeller och lär dig vad du ska tänka på innan du köper." />
+  <meta property="og:url" content="https://teknikbase.se/horlurar/basta-horlurarna-2026/" />
+  <meta property="og:type" content="article" />
   <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #11182d;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #e8eefc;
+      --muted: #a9b4d0;
+      --accent: #6ea8ff;
+      --accent-2: #8b5cf6;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 900px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
       margin: 0;
-      padding: 0;
-      color: #222;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(110,168,255,0.15), transparent 25%),
+        radial-gradient(circle at top right, rgba(139,92,246,0.12), transparent 30%),
+        linear-gradient(180deg, #0a0f1d 0%, #0b1020 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: #dbeafe;
+      text-decoration: underline;
+      text-decoration-color: rgba(110,168,255,0.45);
+      text-underline-offset: 3px;
     }
 
     .container {
-      max-width: 700px;
-      margin: 50px auto;
-      background: #fff;
-      padding: 30px;
+      width: min(100% - 2rem, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(8,12,24,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
       border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      font-weight: 900;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      transition: 0.2s ease;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-decoration: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
     }
 
     h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    p.subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    .question {
-      display: none;
-    }
-
-    .question.active {
-      display: block;
+      margin: 0 0 1rem;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
     }
 
     h2 {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+      margin-top: 2.3rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.7rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
 
-    .answers {
-      display: grid;
-      gap: 12px;
+    h3 {
+      margin-top: 1.6rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
     }
 
-    button.answer-btn,
-    button.restart-btn {
-      padding: 14px 18px;
-      border: none;
-      border-radius: 10px;
-      background: #111827;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s ease;
+    p {
+      margin: 0 0 1rem;
     }
 
-    button.answer-btn:hover,
-    button.restart-btn:hover {
-      background: #374151;
+    .lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 62ch;
     }
 
-    .result {
-      display: none;
-      text-align: center;
+    .section {
+      padding: 1rem 0 3rem;
     }
 
-    .result.active {
-      display: block;
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.3rem;
+      margin: 1.2rem 0;
     }
 
-    .result-box {
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 12px;
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
+    .tag {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: #dbeafe;
+      background: rgba(110,168,255,0.12);
+      border: 1px solid rgba(110,168,255,0.2);
     }
 
-    .result-box h3 {
-      margin-top: 0;
-      font-size: 1.4rem;
+    .bullet-list {
+      margin: 1rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--text);
     }
 
-    .progress {
-      margin-bottom: 25px;
+    .bullet-list li {
+      margin-bottom: .7rem;
+    }
+
+    .product-meta {
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .source-note {
+      color: var(--muted);
       font-size: 0.95rem;
-      color: #555;
-      text-align: right;
+      margin-top: 0.8rem;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        margin: 20px;
-        padding: 20px;
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 2rem;
+    }
+
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        padding: 0.9rem 0;
+        flex-direction: column;
       }
 
-      button.answer-btn,
-      button.restart-btn {
-        font-size: 0.95rem;
+      .hero {
+        padding-top: 3.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Vilka hörlurar ska jag välja?</h1>
-    <p class="subtitle">Svara på några snabba frågor och få en rekommendation.</p>
-
-    <div class="progress" id="progress">Fråga 1 av 5</div>
-
-    <div id="quiz">
-      <div class="question active">
-        <h2>1. Vad ska du främst använda hörlurarna till?</h2>
-        <div class="answers">
-          <button class="answer-btn" onclick="saveAnswer('usage', 'home')">Musik hemma</button>
-          <button class="answer-btn" onclick="saveAnswer('usage', 'travel')">Pendling / resa</button>
-          <button class="answer-btn" onclick="saveAnswer('usage', 'training')">Träning</button>
-          <button class="answer-btn" onclick="saveAnswer('usage', 'gaming')">Gaming</button>
-          <button class="answer-btn" onclick="saveAnswer('usage', 'work')">Samtal / jobb</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <h2>2. Vilken typ av hörlurar föredrar du?</h2>
-        <div class="answers">
-          <button class="answer-btn" onclick="saveAnswer('type', 'in-ear')">In-ear</button>
-          <button class="answer-btn" onclick="saveAnswer('type', 'on-ear')">On-ear</button>
-          <button class="answer-btn" onclick="saveAnswer('type', 'over-ear')">Over-ear</button>
-          <button class="answer-btn" onclick="saveAnswer('type', 'any')">Spelar ingen roll</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <h2>3. Vill du ha trådlöst eller kabel?</h2>
-        <div class="answers">
-          <button class="answer-btn" onclick="saveAnswer('connection', 'wireless')">Trådlöst</button>
-          <button class="answer-btn" onclick="saveAnswer('connection', 'wired')">Kabel</button>
-          <button class="answer-btn" onclick="saveAnswer('connection', 'any')">Spelar ingen roll</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <h2>4. Är brusreducering viktigt?</h2>
-        <div class="answers">
-          <button class="answer-btn" onclick="saveAnswer('anc', 'yes')">Ja</button>
-          <button class="answer-btn" onclick="saveAnswer('anc', 'somewhat')">Lite grann</button>
-          <button class="answer-btn" onclick="saveAnswer('anc', 'no')">Nej</button>
-        </div>
-      </div>
-
-      <div class="question">
-        <h2>5. Vilken budget har du?</h2>
-        <div class="answers">
-          <button class="answer-btn" onclick="saveAnswer('budget', 'low')">Under 1000 kr</button>
-          <button class="answer-btn" onclick="saveAnswer('budget', 'mid')">1000–3000 kr</button>
-          <button class="answer-btn" onclick="saveAnswer('budget', 'high')">3000+ kr</button>
-        </div>
-      </div>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <span class="brand-mark">T</span>
+        <span>Teknikbase</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Startsida</a>
+        <a href="/datorer/">Datorer</a>
+        <a href="/horlurar/" class="active">Hörlurar</a>
+        <a href="/verktyg-ai/">Verktyg & AI</a>
+        <a href="/kontakt/">Kontakt</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="result" id="result">
-      <h2>Din rekommendation</h2>
-      <div class="result-box" id="resultBox"></div>
-      <button class="restart-btn" onclick="restartQuiz()">Gör testet igen</button>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <a class="back-link" href="/horlurar/">← Till hörlurar</a>
+        <div class="eyebrow">Guide</div>
+        <h1>Bästa hörlurarna 2026 – enkel guide</h1>
+        <p class="lead">
+          Letar du efter de bästa hörlurarna 2026? Här går vi igenom populära modeller,
+          viktiga funktioner och vad du ska tänka på innan du köper hörlurar för musik,
+          arbete, resor eller vardag.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <span class="tag">Snabb överblick</span>
+          <h2 style="margin-top:0;">Våra toppval</h2>
+          <ul class="bullet-list">
+            <li><strong>Sony WH-1000XM6</strong> – bäst totalt</li>
+            <li><strong>Bose QuietComfort Ultra</strong> – bäst brusreducering</li>
+            <li><strong>Apple AirPods Pro 2</strong> – bäst för iPhone</li>
+            <li><strong>Sony WF-1000XM5</strong> – bäst trådlösa in-ear</li>
+            <li><strong>Beats Studio Pro</strong> – bäst allround</li>
+          </ul>
+        </div>
+
+        <h2>Sony WH-1000XM6 – bäst totalt</h2>
+        <div class="card">
+          <p class="product-meta">Over-ear • brusreducering • lång batteritid</p>
+          <p>
+            Sony WH-1000XM6 är en av de mest rekommenderade over-ear-hörlurarna just nu.
+            Modellen erbjuder mycket bra brusreducering, hög ljudkvalitet och lång batteritid.
+          </p>
+          <ul class="bullet-list">
+            <li>Mycket bra brusreducering</li>
+            <li>Hög ljudkvalitet</li>
+            <li>Upp till 30 timmars batteritid</li>
+          </ul>
+          <p>
+            Officiell produktsida:
+            <a href="https://www.sony.se/electronics/horlurar" target="_blank" rel="noopener">
+              Sony WH-1000XM-serien
+            </a>
+          </p>
+          <p class="source-note">
+            Källa: tester från
+            <a href="https://www.rtings.com/headphones/reviews/best/headphones" target="_blank" rel="noopener">
+              RTINGS
+            </a>
+          </p>
+        </div>
+
+        <h2>Bose QuietComfort Ultra – bäst brusreducering</h2>
+        <div class="card">
+          <p class="product-meta">Over-ear • komfort • resor och kontor</p>
+          <p>
+            Bose QuietComfort Ultra är kända för mycket effektiv brusreducering
+            och hög komfort vid lång användning.
+          </p>
+          <ul class="bullet-list">
+            <li>Branschledande brusreducering</li>
+            <li>Bekväma vid lång användning</li>
+            <li>Passar resor och kontorsarbete</li>
+          </ul>
+          <p>
+            Officiell produktsida:
+            <a href="https://www.bose.se/sv_se/products/headphones.html" target="_blank" rel="noopener">
+              Bose QuietComfort-serien
+            </a>
+          </p>
+          <p class="source-note">
+            Källa: tester från
+            <a href="https://www.wired.com/gallery/best-wireless-headphones/" target="_blank" rel="noopener">
+              WIRED – Best Wireless Headphones
+            </a>
+          </p>
+        </div>
+
+        <h2>Apple AirPods Pro 2 – bäst för iPhone</h2>
+        <div class="card">
+          <p class="product-meta">In-ear • smidiga • bra med Apple-enheter</p>
+          <p>
+            Apple AirPods Pro 2 är populära in-ear-hörlurar med bra integration
+            med Apple-enheter, effektiv brusreducering och smidig användning i vardagen.
+          </p>
+          <ul class="bullet-list">
+            <li>Enkel koppling till Apple-enheter</li>
+            <li>Bra brusreducering och ljud</li>
+            <li>Passar vardag, arbete och resor</li>
+          </ul>
+          <p>
+            Officiell produktsida:
+            <a href="https://www.apple.com/se/airpods-pro/" target="_blank" rel="noopener">
+              Apple AirPods Pro
+            </a>
+          </p>
+          <p class="source-note">
+            Källa: sammanställning av populära tester och produktomdömen samt
+            Apples officiella produktsida.
+          </p>
+        </div>
+
+        <h2>Sony WF-1000XM5 – bäst trådlösa in-ear</h2>
+        <div class="card">
+          <p class="product-meta">True Wireless • kompakt • starkt ljud</p>
+          <p>
+            Sony WF-1000XM5 är mycket bra trådlösa in-ear-hörlurar för dig som vill ha
+            stark ljudkvalitet i ett mindre format. De passar särskilt bra för pendling
+            och mobil användning.
+          </p>
+          <ul class="bullet-list">
+            <li>Mycket bra ljud för in-ear</li>
+            <li>Smidiga att ta med</li>
+            <li>Effektiv brusreducering</li>
+          </ul>
+          <p>
+            Officiell produktsida:
+            <a href="https://www.sony.se/electronics/truly-wireless/wf-1000xm5" target="_blank" rel="noopener">
+              Sony WF-1000XM5
+            </a>
+          </p>
+          <p class="source-note">
+            Källa: tester och omdömen från
+            <a href="https://www.whathifi.com/headphones/wireless-earbuds/amazon-kicks-off-its-spring-deal-days-sale-with-gbp90-off-some-of-our-favourite-sony-earbuds" target="_blank" rel="noopener">
+              What Hi-Fi?
+            </a>
+          </p>
+        </div>
+
+        <h2>Beats Studio Pro – bäst allround</h2>
+        <div class="card">
+          <p class="product-meta">Over-ear • kraftfullt ljud • bred kompatibilitet</p>
+          <p>
+            Beats Studio Pro är ett bra val för dig som vill ha kraftfullt ljud,
+            lång batteritid och stöd för både Apple och Android.
+          </p>
+          <ul class="bullet-list">
+            <li>Kraftfullt ljud</li>
+            <li>Lång batteritid</li>
+            <li>Fungerar bra med flera plattformar</li>
+          </ul>
+          <p>
+            Officiell produktsida:
+            <a href="https://www.beatsbydre.com/se/headphones/studio-pro" target="_blank" rel="noopener">
+              Beats Studio Pro
+            </a>
+          </p>
+          <p class="source-note">
+            Källa: produktomdömen och testnotiser från
+            <a href="https://www.wired.com/story/beats-studio-pro-deal-326/" target="_blank" rel="noopener">
+              WIRED
+            </a>
+          </p>
+        </div>
+
+        <h2>Vilka typer av hörlurar finns?</h2>
+        <p>
+          Det finns tre vanliga typer av hörlurar: over-ear, on-ear och in-ear.
+          Vilken som passar bäst beror på hur du tänker använda dem.
+        </p>
+
+        <h3>Over-ear</h3>
+        <p>
+          Over-ear-hörlurar omsluter hela örat och är ofta det bästa valet för dig som
+          prioriterar komfort, ljudkvalitet och effektiv brusreducering.
+        </p>
+
+        <h3>On-ear</h3>
+        <p>
+          On-ear-hörlurar vilar direkt mot öronen. De är ofta mindre och lättare än
+          over-ear-modeller, men brukar ge lite sämre ljudisolering.
+        </p>
+
+        <h3>In-ear</h3>
+        <p>
+          In-ear-hörlurar placeras direkt i örat och är lätta att ta med överallt.
+          De är särskilt populära för vardag, träning och pendling.
+        </p>
+
+        <h2>Vilka funktioner är viktigast?</h2>
+
+        <h3>Aktiv brusreducering</h3>
+        <p>
+          Aktiv brusreducering hjälper till att minska ljud från omgivningen, som trafik,
+          ventilation eller prat. Det är särskilt användbart på tåg, flyg och i öppna kontorsmiljöer.
+        </p>
+
+        <h3>Batteritid</h3>
+        <p>
+          Om du väljer trådlösa hörlurar bör batteritiden vara en viktig del av jämförelsen.
+          Over-ear-modeller har ofta längre batteritid än små in-ear-hörlurar.
+        </p>
+
+        <h3>Komfort</h3>
+        <p>
+          Ett par hörlurar kan låta bra men ändå kännas fel efter en timme. Därför är passform,
+          vikt och material minst lika viktiga som tekniska specifikationer.
+        </p>
+
+        <h3>Mikrofon och samtal</h3>
+        <p>
+          Om du använder hörlurarna för jobbsamtal, möten eller telefonsamtal är det viktigt
+          att mikrofonerna fungerar bra även i bullriga miljöer.
+        </p>
+
+        <h2>Så väljer du rätt hörlurar</h2>
+        <ul class="bullet-list">
+          <li><strong>Resor och pendling:</strong> välj hörlurar med bra brusreducering.</li>
+          <li><strong>Träning:</strong> välj små in-ear-hörlurar med stabil passform.</li>
+          <li><strong>Hemma eller kontor:</strong> välj bekväma over-ear-hörlurar.</li>
+          <li><strong>Apple-användare:</strong> se till att funktionerna fungerar bra med iPhone och Mac.</li>
+          <li><strong>Budget:</strong> sätt en tydlig prisklass innan du börjar jämföra modeller.</li>
+        </ul>
+
+        <h2>Vanliga frågor om hörlurar</h2>
+
+        <h3>Vilka hörlurar är bäst 2026?</h3>
+        <p>
+          Bland modeller som ofta nämns högt i tester och jämförelser finns Sony WH-1000XM6,
+          Bose QuietComfort Ultra, Apple AirPods Pro 2 och Sony WF-1000XM5.
+        </p>
+
+        <h3>Är over-ear bättre än in-ear?</h3>
+        <p>
+          Over-ear är ofta bättre för komfort, batteritid och ljudkvalitet, medan in-ear är
+          bättre för portabilitet, träning och enkel vardagsanvändning.
+        </p>
+
+        <h3>Behöver man aktiv brusreducering?</h3>
+        <p>
+          Det beror på hur du använder hörlurarna. ANC gör störst skillnad på resor, i trafik
+          och i miljöer där det finns mycket bakgrundsljud.
+        </p>
+
+        <h3>Vilka hörlurar passar bäst för träning?</h3>
+        <p>
+          För träning är mindre in-ear-hörlurar ofta bäst, särskilt modeller som sitter stabilt,
+          tål svett och är enkla att bära med sig.
+        </p>
+
+        <h2>Källor</h2>
+        <ul class="bullet-list">
+          <li>
+            <a href="https://www.rtings.com/headphones/reviews/best/headphones" target="_blank" rel="noopener">
+              RTINGS – Best Headphones
+            </a>
+          </li>
+          <li>
+            <a href="https://www.wired.com/gallery/best-wireless-headphones/" target="_blank" rel="noopener">
+              WIRED – Best Wireless Headphones
+            </a>
+          </li>
+          <li>
+            <a href="https://www.whathifi.com/headphones/wireless-earbuds/amazon-kicks-off-its-spring-deal-days-sale-with-gbp90-off-some-of-our-favourite-sony-earbuds" target="_blank" rel="noopener">
+              What Hi-Fi – Sony earbuds article
+            </a>
+          </li>
+          <li>
+            <a href="https://www.apple.com/se/airpods-pro/" target="_blank" rel="noopener">
+              Apple – AirPods Pro
+            </a>
+          </li>
+          <li>
+            <a href="https://www.sony.se/electronics/horlurar" target="_blank" rel="noopener">
+              Sony – Hörlurar
+            </a>
+          </li>
+          <li>
+            <a href="https://www.bose.se/sv_se/products/headphones.html" target="_blank" rel="noopener">
+              Bose – Headphones
+            </a>
+          </li>
+          <li>
+            <a href="https://www.beatsbydre.com/se/headphones/studio-pro" target="_blank" rel="noopener">
+              Beats – Studio Pro
+            </a>
+          </li>
+        </ul>
+
+        <h2>Sammanfattning</h2>
+        <p>
+          De bästa hörlurarna 2026 beror på vad du behöver dem till. Vill du ha hög komfort
+          och bra brusreducering är over-ear ofta rätt val. Vill du ha något litet och smidigt
+          för vardag eller träning är in-ear ofta bättre.
+        </p>
+        <p>
+          Tillbaka till kategorisidan:
+          <a href="/horlurar/">Hörlurar</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>Teknikbase</strong><br />
+        <span>Teknik, AI och digitala verktyg</span>
+      </div>
+      <div>
+        <a href="/kontakt/">Kontakt</a> ·
+        <a href="/affiliate-info.html">Affiliate-info</a> ·
+        <a href="/integritetspolicy.html">Integritetspolicy</a>
+      </div>
+      <div>© 2026 Teknikbase.se</div>
     </div>
-  </div>
-
-  <script>
-    const answers = {};
-    let currentQuestion = 0;
-    const questions = document.querySelectorAll(".question");
-    const progress = document.getElementById("progress");
-    const result = document.getElementById("result");
-    const quiz = document.getElementById("quiz");
-    const resultBox = document.getElementById("resultBox");
-
-    function saveAnswer(key, value) {
-      answers[key] = value;
-      currentQuestion++;
-
-      if (currentQuestion < questions.length) {
-        showQuestion(currentQuestion);
-      } else {
-        showResult();
-      }
-    }
-
-    function showQuestion(index) {
-      questions.forEach((q, i) => {
-        q.classList.toggle("active", i === index);
-      });
-      progress.textContent = `Fråga ${index + 1} av ${questions.length}`;
-    }
-
-    function showResult() {
-      quiz.style.display = "none";
-      progress.style.display = "none";
-      result.classList.add("active");
-
-      const recommendation = getRecommendation(answers);
-
-      resultBox.innerHTML = `
-        <h3>${recommendation.title}</h3>
-        <p>${recommendation.description}</p>
-        <p><strong>Passar dig eftersom:</strong> ${recommendation.reason}</p>
-      `;
-    }
-
-    function getRecommendation(data) {
-      if (data.usage === "gaming") {
-        return {
-          title: "Gamingheadset",
-          description: "Du bör välja ett gamingheadset med bra mikrofon, tydligt ljud och hög komfort under längre sessioner.",
-          reason: "du främst ska använda hörlurarna för gaming."
-        };
-      }
-
-      if (data.usage === "training") {
-        return {
-          title: "Trådlösa in-ear för träning",
-          description: "Du bör välja lätta in-ear-hörlurar med stabil passform och gärna svettålighet.",
-          reason: "du behöver något smidigt och säkert som sitter kvar under rörelse."
-        };
-      }
-
-      if (data.usage === "travel" && data.anc === "yes") {
-        return {
-          title: "Trådlösa over-ear med brusreducering",
-          description: "Du bör välja over-ear-hörlurar med aktiv brusreducering för att stänga ute ljud på buss, tåg eller flyg.",
-          reason: "du reser eller pendlar och vill ha lugnare lyssning."
-        };
-      }
-
-      if (data.usage === "work") {
-        return {
-          title: "Trådlöst headset för jobb och samtal",
-          description: "Du bör välja hörlurar eller headset med bra mikrofon, tydligt röstljud och bekväm passform för längre användning.",
-          reason: "du främst ska använda dem till samtal eller arbete."
-        };
-      }
-
-      if (data.usage === "home" && data.type === "over-ear") {
-        return {
-          title: "Over-ear för musik hemma",
-          description: "Du bör välja bekväma over-ear-hörlurar med bra ljudkvalitet och långvarig komfort.",
-          reason: "du lyssnar hemma och prioriterar ljud och bekvämlighet."
-        };
-      }
-
-      if (data.type === "in-ear") {
-        return {
-          title: "Smidiga in-ear-hörlurar",
-          description: "Du bör välja in-ear om du vill ha något litet, portabelt och enkelt att ta med.",
-          reason: "du föredrar en kompakt modell."
-        };
-      }
-
-      if (data.connection === "wired") {
-        return {
-          title: "Kabelanslutna hörlurar",
-          description: "Du bör välja kabelhörlurar om du vill slippa ladda och ha en enkel, stabil anslutning.",
-          reason: "du föredrar kabel framför trådlöst."
-        };
-      }
-
-      if (data.budget === "low") {
-        return {
-          title: "Prisvärda allround-hörlurar",
-          description: "Du bör välja ett enklare men prisvärt par hörlurar med fokus på det viktigaste för din användning.",
-          reason: "du vill hålla budgeten nere."
-        };
-      }
-
-      if (data.budget === "high") {
-        return {
-          title: "Premiumhörlurar",
-          description: "Du bör välja en premiummodell med bättre ljud, högre komfort och fler funktioner som brusreducering eller bättre mikrofon.",
-          reason: "du har budget för högre kvalitet."
-        };
-      }
-
-      return {
-        title: "Trådlösa allround-hörlurar",
-        description: "Du bör välja ett par mångsidiga trådlösa hörlurar som fungerar bra i vardagen.",
-        reason: "dina svar pekar mot en flexibel lösning som passar flera situationer."
-      };
-    }
-
-    function restartQuiz() {
-      currentQuestion = 0;
-      for (let key in answers) {
-        delete answers[key];
-      }
-
-      quiz.style.display = "block";
-      progress.style.display = "block";
-      result.classList.remove("active");
-      showQuestion(0);
-    }
-  </script>
+  </footer>
 </body>
 </html>
