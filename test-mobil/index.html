@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hitta rätt mobil för dig</title>
+  <title>Hitta rätt mobil för dig | Teknikbase</title>
+  <meta name="description" content="Gör vårt snabba test och få ett förslag på vilken mobiltelefon som passar dina behov.">
+  <link rel="canonical" href="https://teknikbase.se/test-mobil/">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -65,6 +67,7 @@
 </head>
 <body>
   <div class="container">
+    <p><a href="/">← Till startsidan</a></p>
     <h1>Hitta rätt mobil för dig</h1>
     <p>Svara på några enkla frågor så får du ett förslag.</p>
 
@@ -146,7 +149,7 @@
       }
 
       document.getElementById("resultTitle").textContent = title;
-      document.getElementById("resultText").textContent = text;
+      document.getElementById("resultText").innerHTML = text + "<br><br><a href="/mobiltelefoner/">Läs fler mobilguider</a> · <a href="/kontakt/">Tipsa oss om guider</a>";
       document.getElementById("resultBox").style.display = "block";
     }
   </script>
